@@ -1,26 +1,235 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-custard: #FFFDF5;
+    --bg-warm: #FDF6E9;
+    --mango-primary: #FF7A30;
+    --mango-dark: #E55F17;
+    --peach-accent: #FFA45B;
+    --celery-green: #4ADE80;
+    --celery-dark: #22C55E;
+    --berry-pink: #FF6584;
+    --custard-cream: #FEF3C7;
+  }
+
+  body {
+    background-color: #FFFDF5;
+    background-image: 
+      radial-gradient(#fed7aa 0.75px, transparent 0.75px),
+      radial-gradient(#fde68a 0.75px, #FFFDF5 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    color: #432818;
+    font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-baloo), var(--font-nunito), cursive, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Claymorphic & Kawaii Tactile Styles */
+.clay-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 14px 30px -4px rgba(255, 122, 48, 0.12),
+    0 4px 10px -2px rgba(0, 0, 0, 0.04),
+    inset 0 3px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 0 rgba(254, 215, 170, 0.35);
+  border: 2px solid #FFF1D6;
+}
+
+.clay-card-warm {
+  background: linear-gradient(135deg, #FFFDF7 0%, #FEF8ED 100%);
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 16px 32px -4px rgba(255, 122, 48, 0.14),
+    inset 0 2px 4px rgba(255, 255, 255, 1),
+    inset 0 -3px 0 rgba(253, 186, 116, 0.3);
+  border: 2px solid #FEE2B3;
+}
+
+.clay-btn-primary {
+  background: linear-gradient(180deg, #FFA059 0%, #FF7A30 100%);
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 6px 0 #D95A14,
+    0 12px 24px -2px rgba(255, 122, 48, 0.4),
+    inset 0 2px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clay-btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 2px 0 #D95A14,
+    0 4px 8px -1px rgba(255, 122, 48, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.clay-btn-green {
+  background: linear-gradient(180deg, #6EE7B7 0%, #4ADE80 100%);
+  color: #064E3B;
+  font-weight: 800;
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 5px 0 #16A34A,
+    0 10px 20px -2px rgba(74, 222, 128, 0.35),
+    inset 0 2px 2px rgba(255, 255, 255, 0.7);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.clay-btn-green:active {
+  transform: translateY(3px);
+  box-shadow: 
+    0 2px 0 #16A34A,
+    0 4px 8px -1px rgba(74, 222, 128, 0.3);
+}
+
+.clay-btn-white {
+  background: #ffffff;
+  color: #7C2D12;
+  font-weight: 700;
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 4px 0 #FED7AA,
+    0 8px 16px -2px rgba(124, 45, 18, 0.08),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  border: 1.5px solid #FFEDD5;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.clay-btn-white:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #FED7AA;
+}
+
+/* 3D Glass Gashapon Dome */
+.gashapon-dome {
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 35%, rgba(255, 237, 213, 0.15) 70%, rgba(251, 146, 60, 0.25) 100%);
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    inset 0 10px 30px rgba(255, 255, 255, 0.8),
+    inset 0 -15px 35px rgba(255, 122, 48, 0.25),
+    inset 10px 0 20px rgba(255, 255, 255, 0.4),
+    0 20px 40px -10px rgba(255, 122, 48, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dome Highlights */
+.dome-reflection {
+  position: absolute;
+  top: 6%;
+  left: 12%;
+  width: 40%;
+  height: 25%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 75%);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  pointer-events: none;
+}
+
+/* 3D Gashapon Capsule Spheres */
+.capsule-sphere {
+  border-radius: 9999px;
+  position: relative;
+  box-shadow: 
+    inset -3px -4px 6px rgba(0, 0, 0, 0.22),
+    inset 3px 4px 6px rgba(255, 255, 255, 0.7),
+    0 6px 12px -2px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.capsule-gloss {
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  width: 32%;
+  height: 26%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 80%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.capsule-seam {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Machine Metal Base */
+.gashapon-base {
+  background: linear-gradient(180deg, #FF9548 0%, #FF6E20 50%, #E35306 100%);
+  border-radius: 2.25rem 2.25rem 2rem 2rem;
+  box-shadow: 
+    0 16px 30px -4px rgba(217, 90, 20, 0.45),
+    inset 0 4px 6px rgba(255, 255, 255, 0.6),
+    inset 0 -6px 8px rgba(0, 0, 0, 0.2);
+  border: 4px solid #FFBE82;
+  position: relative;
+}
+
+.chute-opening {
+  background: radial-gradient(circle at 50% 20%, #431407 0%, #1A0702 100%);
+  border: 3px solid #FFB273;
+  box-shadow: 
+    inset 0 8px 12px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 1.25rem;
+}
+
+/* Keyframes */
+@keyframes rattle {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-3px, 3px) rotate(-1.5deg); }
+  40% { transform: translate(3px, -2px) rotate(1.5deg); }
+  60% { transform: translate(-4px, -1px) rotate(-1deg); }
+  80% { transform: translate(3px, 3px) rotate(1.2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-rattle {
+  animation: rattle 0.15s infinite ease-in-out;
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 122, 48, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(255, 122, 48, 0.8); }
+}
+
+.animate-glow {
+  animation: pulseGlow 1.8s ease-in-out infinite;
 }
